@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>New event</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panelGrid columns="2">  
+                <f:facet name="header">  
+                    Nom *<p:inputText id="name" value="" label="name"/>  
+                </f:facet>  
+  
+                <p:panelGrid columns="2">
+                    <h:outputLabel for="location" value="Lieu"/>  
+                    <p:inputText id="location" value="" label="location"/>
+                    Début *
+                    <p:calendar value="#{DateBean.date1}" pattern="dd/MM/yyyy HH:mm"/>
+                    Fin * 
+                    <p:calendar value="#{DateBean.date2}" pattern="dd/MM/yyyy HH:mm"/>
+                    <h:outputLabel for="calendar" value="Agenda *"/>
+                    <p:selectOneMenu id="diary">
+                        <f:selectItem itemLabel="default" itemValue="default"/>
+                        <f:selectItem itemLabel="liste des agenda" itemValue="other"/>
+                    </p:selectOneMenu>
+                        
+                    <h:outputLabel for="again" value="Répétition"/>
+                    <p:panel>
+                        <p:selectOneMenu id="again">
+                            <f:selectItem itemLabel="Aucune" itemValue="none"/>
+                            <f:selectItem itemLabel="Tous les ans" itemValue="year"/>
+                            <f:selectItem itemLabel="Tous les mois" itemValue="mounth"/>
+                            <f:selectItem itemLabel="Toutes les semaines" itemValue="week"/>
+                            <f:selectItem itemLabel="Tous les jours" itemValue="day"/>
+                        </p:selectOneMenu><br/>
+                        <p:outputPanel id="repeat">
+                            <p:selectOneRadio id="rpt" layout="custom">
+                                <f:selectItem itemLabel="repeat" itemValue="1"/>
+                                <f:selectItem itemLabel="until" itemValue="2"/>
+                            </p:selectOneRadio>
+                            <h:panelGrid columns="4" cellspacing="0" onclick="">
+                                <p:radioButton id="rpt1" for="rpt" itemIndex="0"/>
+                                <h:outputLabel for="rpt1" value="Répéter"/>
+                                <p:spinner id="times" min="0" size="6"/>
+                                <h:outputLabel for="rpt1" value="fois"/>
+                                
+                                <p:radioButton id="rpt2" for="rpt" itemIndex="1"/>
+                                <h:outputLabel for="rpt2" value="Jusqu'au"/>
+                                <p:calendar pattern="dd/MM/yyyy" size="6"/><!--VALUE!!!!!-->
+                                
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </p:panel>
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <h:outputLabel for="alarm" value="Alarme"/>  
+                    <p:selectOneMenu>
+                        <f:selectItem itemValue="none" itemLabel="Aucune"/>
+                        <f:selectItem itemValue="mail" itemLabel="Mail"/>
+                        <f:selectItem itemValue="sms" itemLabel="SMS"/>
+                        <f:selectItem itemValue="other" itemLabel="Autre"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel for="when" value="Me prévenir"/>  
+                    <p:panel>
+                        <p:spinner size="4"/> <br />
+                    <p:selectOneMenu id="againAlarme">
+                            <f:selectItem itemLabel="jamais" itemValue="none"/>
+                            <f:selectItem itemLabel="minute(s) avant" itemValue="min"/>
+                            <f:selectItem itemLabel="heure(s) avant" itemValue="hour"/>
+                            <f:selectItem itemLabel="jour(s) avant" itemValue="day"/>
+                            <f:selectItem itemLabel="mois avant" itemValue="mounth"/>
+                            <f:selectItem itemLabel="annnée(s) avant" itemValue="year"/>
+                        </p:selectOneMenu>
+                    </p:panel>
+                    <h:outputLabel for="invited" value="Inviter"/>
+                    <p:panel>
+                        <p:inputTextarea rows="1"/>
+                        <p:button icon="ui-icon-search"/>
+                    </p:panel>
+                    <h:outputLabel for="details" value="Détails"/>
+                    <p:inputTextarea rows="3" cols="30" id="details" label="details" value=""/>
+                    <h:outputLabel for="comment" value="Commentaire"/>
+                    <p:inputTextarea rows="3" cols="30" id="comment" label="comment"/>
+                </p:panelGrid>  
+  
+                <f:facet name="footer">  
+                    <p:commandButton type="button" value="Valider" icon="ui-icon-check"/>
+                    <p:commandButton type="button" value="Annuler" icon="ui-icon-cancel"/>
+                </f:facet>  
+            </p:panelGrid>  
+        </h:form>
+    </h:body>
+</html>
+
