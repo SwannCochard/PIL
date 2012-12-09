@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Ajout d'un événement</h1>
+        <h:form>
+        Nom : <p:inputText type="text" id="nameEvent" value="" size="30" /><br />
+        Date début : <p:calendar id="beginDate"></p:calendar><br />
+        Date fin : <p:calendar id="endDate"></p:calendar><br />
+        type alarme : <select name="alarmeType">
+            <option>Sonnerie</option>
+            <option>Mail</option>
+            <option>SMS</option>
+        </select><br />
+        Accessibilité : <select name="accessibility"> 
+            <option>Privé</option>
+            <option>Public</option>
+        </select><span style="color:red">//Inutile ?</span><br />
+        Lieu : <p:inputText type="text" id="placeEvent" value="" size="30" /><br />
+        Commentaire : <textarea cols="80" rows="10"></textarea><br />
+        Document : <input type="file" name="selectDocument" value="" /><br />
+        Ajouter des utilisateurs : <p:autoComplete id="acSimple" value="#{autoCompleteBean.txt1}" multiple="true"   
+                    completeMethod="#{autoCompleteBean.complete}"/>  
+        <br />        
+        Périodicité : <select name="periodicity">
+            <option></option>
+            <option>Toutes les semaines</option>
+            <option>Tout les mois</option>
+            <option>Comme défini : </option>
+        </select><p:inputText type="text" id="asDefine" value="" size="5"/><select name="periodicityAsDefine">
+            <option></option>
+            <option>jours</option>
+            <option>semaines</option>
+            <option>mois</option>
+        </select><br />
+        <input type="submit" value="valider" /><input type="submit" value="annuler" /><input type="submit" value="réinitialiser" />
+        </h:form>
+        
+    </h:body>
+</html>
+

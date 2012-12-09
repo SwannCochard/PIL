@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Modifier un événement</h1>
+        <h:form>
+        Nom : <p:inputText type="text" id="nameEvent" value="" size="30" /><br />
+        Date début : <p:calendar id="beginDate"></p:calendar><br />
+        Date fin : <p:calendar id="endDate"></p:calendar><br />
+        type alarme : <select name="alarmeType">
+            <option>Sonnerie</option>
+            <option>Mail</option>
+            <option>SMS</option>
+        </select><br />
+        Accessibilité : <select name="accessibility"> 
+            <option>Privé</option>
+            <option>Public</option>
+        </select><span style="color:red">//Inutile ?</span><br />
+        Lieu : <p:inputText type="text" id="placeEvent" value="" size="30" /><br />
+        Commentaire : <textarea cols="80" rows="10"></textarea><br />
+        Document : <input type="file" name="selectDocument" value="" /><br />
+        Ajouter des utilisateurs : <!--<p:pickList id="pojoPickList" value="#{pickListBean.players}" var="player" effect="bounce"  
+                    itemValue="#{player}" itemLabel="#{player.name}" converter="player"  
+                    showSourceControls="true" showTargetControls="true"   
+                    showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains" >  
+   
+  
+        <p:ajax event="transfer" listener="#{pickListBean.onTransfer}" update="msg" />  
+  
+        <p:column style="width:25%">  
+            <p:graphicImage value="/images/barca/#{player.photo}" width="30" height="40" />  
+        </p:column>  
+  
+            <p:column style="width:75%;">  
+            #{player.name}  
+        </p:column>  
+  
+    </p:pickList>  --><br />
+        Périodicité : <select name="periodicity">
+            <option></option>
+            <option>Toutes les semaines</option>
+            <option>Tout les mois</option>
+            <option>Comme défini : </option>
+        </select><br />
+        </h:form>
+    </h:body>
+</html>
+
